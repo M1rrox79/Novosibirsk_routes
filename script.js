@@ -124,7 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'none';
   });
 
-  // Обработка отправки формы
+  const defaultSuccessText = 'Спасибо за регистрацию. Будем ждать вас в нашем приключении.';
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = nameInput.value.trim();
@@ -136,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Проверка номера телефона по регулярному выражению
     const phoneRegex = /^\+?\d{10,15}$/;
     if (!phoneRegex.test(phone)) {
       alert('Пожалуйста, введите корректный номер телефона (только цифры, возможно + в начале, длина 10-15 символов).');
@@ -151,11 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       const result = await response.json();
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+
       if (result.success) {
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
+        successMessage.textContent = defaultSuccessText;
       } else {
-        alert(result.error || 'Ошибка при сохранении данных.');
+        successMessage.textContent = result.error; // Показываем сообщение о повторной регистрации
       }
     } catch (err) {
       alert('Не удалось отправить данные на сервер.');

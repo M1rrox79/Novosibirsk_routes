@@ -31,12 +31,23 @@ app.post('/register', (req, res) => {
     return res.status(400).json({ error: 'Заполните все поля' });
   }
 
-  const stmt = db.prepare('INSERT INTO users (name, phone, route) VALUES (?, ?, ?)');
-  stmt.run(name, phone, route, function(err) {
+  // Проверяем, есть ли уже такой пользователь на этом маршруте
+  db.get('SELECT * FROM users WHERE phone = ? AND route = ?', [phone, route], (err, row) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json({ success: true, id: this.lastID });
+
+    if (row) {
+      // Пользователь уже зарегистрирован
+      return res.json({ success: false, error: 'Вы уже зарегистрированы на данном мероприятии' });
+    }
+
+    // Если нет, добавляем нового пользователя
+    const stmt = db.prepare('INSERT INTO users (name, phone, route) VALUES (?, ?, ?)');
+    stmt.run(name, phone, route, function(err) {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ success: true, id: this.lastID });
+    });
+    stmt.finalize();
   });
-  stmt.finalize();
 });
 
 app.listen(PORT, () => {
