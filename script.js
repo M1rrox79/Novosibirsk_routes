@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Обработка отправки формы
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = nameInput.value.trim();
     const phone = phoneInput.value.trim();
@@ -136,9 +136,24 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    console.log('Новая заявка:', { name, phone, route });
-    form.style.display = 'none';
-    successMessage.style.display = 'block';
+    try {
+      const response = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, route })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+      } else {
+        alert(result.error || 'Ошибка при сохранении данных.');
+      }
+    } catch (err) {
+      alert('Не удалось отправить данные на сервер.');
+      console.error(err);
+    }
   });
 
   // Закрытие модалки при клике вне контента
