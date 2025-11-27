@@ -136,6 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Проверка номера телефона по регулярному выражению
+    const phoneRegex = /^\+?\d{10,15}$/;
+    if (!phoneRegex.test(phone)) {
+      alert('Пожалуйста, введите корректный номер телефона (только цифры, возможно + в начале, длина 10-15 символов).');
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:3000/register', {
         method: 'POST',
