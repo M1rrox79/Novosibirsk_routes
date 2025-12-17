@@ -46,16 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
   routeSelect.style.padding = '4px';
 
   const option1 = document.createElement('option');
-  option1.value = 'Исторические страницы Новосибирска';
-  option1.textContent = 'Исторические страницы Новосибирска';
+  option1.value = 'Сердце Сибири - Площадь Ленина и НОВАТ';
+  option1.textContent = 'Сердце Сибири - Площадь Ленина и НОВАТ';
 
   const option2 = document.createElement('option');
-  option2.value = 'Природные оазисы Новосибирска';
-  option2.textContent = 'Природные оазисы Новосибирска';
+  option2.value = 'Прогулка по Тихому центру и Красному проспекту';
+  option2.textContent = 'Прогулка по Тихому центру и Красному проспекту';
 
   const option3 = document.createElement('option');
-  option3.value = 'Гастрономические удовольствия';
-  option3.textContent = 'Гастрономические удовольствия';
+  option3.value = 'Исследование Акадамгородка';
+  option3.textContent = 'Исследование Акадамгородка';
 
   routeSelect.appendChild(option1);
   routeSelect.appendChild(option2);
