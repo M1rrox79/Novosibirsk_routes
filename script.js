@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Создаем модальное окно
+
   const modal = document.createElement('div');
   modal.style.position = 'fixed';
   modal.style.top = '0';
