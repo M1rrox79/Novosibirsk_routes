@@ -171,4 +171,73 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'none';
     }
   });
+
+  // Прокрутка к разделу "Маршруты" при клике в header
+  const routesLink = document.getElementById('routes-link');
+  const routesSection = document.getElementById('routes');
+
+  if (routesLink && routesSection) {
+    routesLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      routesSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // Inline overlay для "О проекте"
+  const aboutLink = document.getElementById('about-link');
+
+  if (aboutLink) {
+    const overlay = document.createElement('div');
+    overlay.textContent = 'Инфо о нашем проекте';
+    overlay.style.position = 'absolute';
+    overlay.style.backgroundColor = '#ffffff';
+    overlay.style.color = '#333';
+    overlay.style.padding = '12px 16px';
+    overlay.style.borderRadius = '8px';
+    overlay.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)';
+    overlay.style.display = 'none';
+    overlay.style.zIndex = '1002';
+    overlay.style.minWidth = '220px';
+    overlay.style.textAlign = 'center';
+
+    document.body.appendChild(overlay);
+
+    const showOverlay = () => {
+      const rect = aboutLink.getBoundingClientRect();
+      overlay.style.left = `${rect.left + window.scrollX}px`;
+      overlay.style.top = `${rect.bottom + window.scrollY + 10}px`;
+      overlay.style.display = 'block';
+    };
+
+    const hideOverlay = () => {
+      overlay.style.display = 'none';
+    };
+
+    aboutLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (overlay.style.display === 'block') {
+        hideOverlay();
+      } else {
+        showOverlay();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!aboutLink.contains(e.target) && !overlay.contains(e.target)) {
+        hideOverlay();
+      }
+    });
+
+    window.addEventListener('scroll', hideOverlay);
+  }
+
+  /*
+  const aboutLink = document.getElementById('about-link');
+  if (aboutLink) {
+    aboutLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Инфа о нашем проекте');
+    });
+  }
+  */
 });
