@@ -241,6 +241,68 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', hideOverlay);
   }
 
+  // Inline overlay для "Контакты"
+  const contactsLink = document.getElementById('contacts-link');
+
+  if (contactsLink) {
+    const contactsOverlay = document.createElement('div');
+    contactsOverlay.innerHTML = `
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div>+7 (999) 123-45-67</div>
+        <div>info@example.com</div>
+      </div>
+    `;
+    contactsOverlay.style.position = 'absolute';
+    contactsOverlay.style.backgroundColor = '#ffffff';
+    contactsOverlay.style.color = '#333';
+    contactsOverlay.style.padding = '12px 16px';
+    contactsOverlay.style.borderRadius = '8px';
+    contactsOverlay.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)';
+    contactsOverlay.style.display = 'none';
+    contactsOverlay.style.zIndex = '1002';
+    contactsOverlay.style.minWidth = '220px';
+
+    contactsOverlay.style.opacity = '0';
+    contactsOverlay.style.transform = 'translateY(-5px)';
+    contactsOverlay.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+    document.body.appendChild(contactsOverlay);
+
+    const showContactsOverlay = () => {
+      const rect = contactsLink.getBoundingClientRect();
+      contactsOverlay.style.left = `${rect.left + window.scrollX}px`;
+      contactsOverlay.style.top = `${rect.bottom + window.scrollY + 10}px`;
+      contactsOverlay.style.display = 'block';
+
+      requestAnimationFrame(() => {
+        contactsOverlay.style.opacity = '1';
+        contactsOverlay.style.transform = 'translateY(0)';
+      });
+    };
+
+    const hideContactsOverlay = () => {
+      contactsOverlay.style.opacity = '0';
+      contactsOverlay.style.transform = 'translateY(-5px)';
+      setTimeout(() => {
+        contactsOverlay.style.display = 'none';
+      }, 250);
+    };
+
+    contactsLink.addEventListener('mouseenter', showContactsOverlay);
+    contactsLink.addEventListener('mouseleave', hideContactsOverlay);
+
+    contactsOverlay.addEventListener('mouseenter', showContactsOverlay);
+    contactsOverlay.addEventListener('mouseleave', hideContactsOverlay);
+
+    document.addEventListener('click', (e) => {
+      if (!contactsLink.contains(e.target) && !contactsOverlay.contains(e.target)) {
+        hideContactsOverlay();
+      }
+    });
+
+    window.addEventListener('scroll', hideContactsOverlay);
+  }
+
   /*
   const aboutLink = document.getElementById('about-link');
   if (aboutLink) {
