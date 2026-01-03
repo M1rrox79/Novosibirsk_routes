@@ -200,6 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.style.minWidth = '220px';
     overlay.style.textAlign = 'center';
 
+    overlay.style.opacity = '0';
+    overlay.style.transform = 'translateY(-5px)';
+    overlay.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
     document.body.appendChild(overlay);
 
     const showOverlay = () => {
@@ -207,20 +211,26 @@ document.addEventListener('DOMContentLoaded', () => {
       overlay.style.left = `${rect.left + window.scrollX}px`;
       overlay.style.top = `${rect.bottom + window.scrollY + 10}px`;
       overlay.style.display = 'block';
+
+      requestAnimationFrame(() => {
+        overlay.style.opacity = '1';
+        overlay.style.transform = 'translateY(0)';
+      });
     };
 
     const hideOverlay = () => {
-      overlay.style.display = 'none';
+      overlay.style.opacity = '0';
+      overlay.style.transform = 'translateY(-5px)';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 250);
     };
 
-    aboutLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (overlay.style.display === 'block') {
-        hideOverlay();
-      } else {
-        showOverlay();
-      }
-    });
+    aboutLink.addEventListener('mouseenter', showOverlay);
+    aboutLink.addEventListener('mouseleave', hideOverlay);
+
+    overlay.addEventListener('mouseenter', showOverlay);
+    overlay.addEventListener('mouseleave', hideOverlay);
 
     document.addEventListener('click', (e) => {
       if (!aboutLink.contains(e.target) && !overlay.contains(e.target)) {
