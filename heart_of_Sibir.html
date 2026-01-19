@@ -1,57 +1,85 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Гастрономические удовольствия</title>
+    <title>Сердце Сибири</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles1.css">
 </head>
-
 <body>
 
 <header class="header">
-    <div class="container header__inner">
-        <div class="logo">Маршруты</div>
-        <nav class="nav">
-            <a href="index.html">Главная</a>
-            <a href="#">Маршруты</a>
+    <div class="header__inner">
+        <nav class="menu">
+            <a href="#">Контакты</a>
+            <a href="#">Отзывы</a>
+            <a href="#">Настройки</a>
+            <a class="profile" href="#">Профиль</a>
         </nav>
     </div>
 </header>
 
+<main class="page">
 
-<main>
+    <!-- HERO -->
+    <section class="hero">
+        <img src="images/route1.png" alt="Новосибирск">
 
-    <section class="route-hero">
-        <img src="img/route-gastro-top.jpg" alt="">
-    </section>
+        <div class="hero__content">
+            <h1>Сердце Сибири –<br>Площадь Ленина и НОВАТ</h1>
 
-    <section class="container">
-        <h1>Гастрономические удовольствия</h1>
-        <div class="route-duration">Длительность: 1 час</div>
-    </section>
+            <p><strong>Протяженность:</strong> 1,5 км</p>
+            <p><strong>Количество лестниц:</strong> 3</p>
 
-    <section class="container route-locations">
-        <h2>Места</h2>
-
-        <div class="locations-grid">
-            <div><img src="img/gastro1.jpg"><p>Кафе "Сибирские истории"</p></div>
-            <div><img src="img/gastro2.jpg"><p>Ресторан "Старейший"</p></div>
+            <p><strong>Особенности:</strong></p>
+            <ul>
+                <li>Наличие пешеходных зон</li>
+                <li>Наличие общественных туалетов</li>
+            </ul>
         </div>
     </section>
 
-    <section class="container route-map">
+    <!-- PLACES -->
+    <section class="places">
+        <h2>Ключевые места</h2>
+
+        <div class="places__grid">
+            <div class="place">
+                <img src="images/heart1.png">
+                <h3>Новосибирский театр оперы и балета (НОВАТ)</h3>
+                <p>Это визитная карточка города и его главная гордость.</p>
+            </div>
+
+            <div class="place">
+                <img src="images/heart2.png">
+                <h3>Краеведческий музей</h3>
+                <p>Глубокое изучение истории региона.</p>
+            </div>
+
+            <div class="place">
+                <img src="images/heart3.png">
+                <h3>Первомайский сквер</h3>
+                <p>Уютный зеленый уголок рядом с шумом центра.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map">
         <h2>Маршрут на карте</h2>
-        <div class="map-placeholder"></div>
+
+        <iframe 
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A1b09f7b5a8b4a9f7b9f3b5cdbf8c9c0d&amp;source=constructor"
+            frameborder="0">
+        </iframe>
+
+        <div class="buttons">
+            <button>Рассчитать</button>
+            <button>Открыть маршрут в Яндекс картах</button>
+        </div>
     </section>
 
 </main>
-
-<footer class="footer">
-    <div class="container">
-        © 2025
-    </div>
-</footer>
 
 </body>
 </html>
