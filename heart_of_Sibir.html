@@ -4,28 +4,30 @@
     <meta charset="utf-8">
     <title>Сердце Сибири</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="header">
-    <div class="header__inner">
-        <nav class="menu">
-            <a href="#">Контакты</a>
-            <a href="#">Отзывы</a>
-            <a href="#">Настройки</a>
-            <a class="profile" href="#">Профиль</a>
+    <div class="container header__inner">
+        <div class="logo">Маршруты</div>
+        <nav class="nav">
+            <a href="#" id="routes-link">Маршруты</a>
+            <a href="#" id="about-link">О проекте</a>
+            <a href="#" id="contacts-link">Контакты</a>
         </nav>
+        <a class="btn btn-signup">Записаться</a>
     </div>
 </header>
+
 
 <main class="page">
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero_route">
         <img src="images/route1.png" alt="Новосибирск">
 
-        <div class="hero__content">
+        <div class="hero_route__content">
             <h1>Сердце Сибири –<br>Площадь Ленина и НОВАТ</h1>
 
             <p><strong>Протяженность:</strong> 1,5 км</p>
@@ -40,23 +42,23 @@
     </section>
 
     <!-- PLACES -->
-    <section class="places">
+    <section class="places_route">
         <h2>Ключевые места</h2>
 
-        <div class="places__grid">
+        <div class="places_route__grid">
             <div class="place">
                 <img src="images/heart1.png">
                 <h3>Новосибирский театр оперы и балета (НОВАТ)</h3>
                 <p>Это визитная карточка города и его главная гордость.</p>
             </div>
 
-            <div class="place">
+            <div class="places_route">
                 <img src="images/heart2.png">
                 <h3>Краеведческий музей</h3>
                 <p>Глубокое изучение истории региона.</p>
             </div>
 
-            <div class="place">
+            <div class="places_route">
                 <img src="images/heart3.png">
                 <h3>Первомайский сквер</h3>
                 <p>Уютный зеленый уголок рядом с шумом центра.</p>
@@ -73,7 +75,7 @@
             frameborder="0">
         </iframe>
 
-        <div class="buttons">
+        <div class="button">
             <button>Рассчитать</button>
             <button>Открыть маршрут в Яндекс картах</button>
         </div>

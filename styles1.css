@@ -43,28 +43,28 @@ body {
 }
 
 /* HERO */
-.hero {
+.hero_rout {
     display: flex;
     gap: 40px;
     margin-bottom: 50px;
 }
 
-.hero img {
+.hero_rout img {
     width: 420px;
     border-radius: 12px;
 }
 
-.hero__content h1 {
+.hero_rout__content h1 {
     font-size: 40px;
     margin-bottom: 20px;
 }
 
-.hero__content p {
+.hero_rout__content p {
     margin-bottom: 8px;
     font-size: 18px;
 }
 
-.hero__content ul {
+.hero_rout__content ul {
     font-size: 18px;
     margin-left: 25px;
 }
