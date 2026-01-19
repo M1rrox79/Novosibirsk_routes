@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Исследование Академгородка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header__inner">
+        <div class="logo">Маршруты</div>
+        <nav class="nav">
+            <a href="#" id="other-routes-link">Маршруты</a>
+            <a href="#" id="about-link">О проекте</a>
+            <a href="#" id="contacts-link">Контакты</a>
+        </nav>
+        <a class="btn btn-signup">Записаться</a>
+    </div>
+</header>
+
+
+<main class="page">
+
+    <!-- HERO -->
+    <section class="hero_route">
+        <img src="images/route2.png" alt="Новосибирск">
+
+        <div class="hero_route__content">
+            <h1>Исследование Академгородка</h1>
+
+            <p><strong>Протяженность:</strong> 4 км</p>
+            <p><strong>Количество лестниц:</strong> 2</p>
+
+            <p><strong>Особенности:</strong></p>
+            <ul>
+                <li>Наличие пешеходных зон</li>
+                <li>Мало доступных общественных туалетов</li>
+                <li>Часть маршрута проходит в лесной местности</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PLACES -->
+    <section class="places_route">
+        <h2>Ключевые места</h2>
+
+        <div class="places_route__grid">
+            <div class="place">
+                <img src="images/centure1.png">
+                <h3>Проспект Академика Лаврентьева</h3>
+                <p>Главная улица, вдоль которой расположены основные институты Сибирского отделения РАН.</p>
+            </div>
+
+            <div class="places_route">
+                <img src="images/centure2.png">
+                <h3>Технопарк "Академпарк"</h3>
+                <p>Это комплекс современных зданий необычной формы, соединенных крытыми переходами.</p>
+            </div>
+
+            <div class="places_route">
+                <img src="images/centure3.png">
+                <h3>Новосибирский государственный университет</h3>
+                <p>Один из лучших вузов страны, асположенный прямо в лесу.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map">
+        <h2>Маршрут на карте</h2>
+
+        <iframe 
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A1b09f7b5a8b4a9f7b9f3b5cdbf8c9c0d&amp;source=constructor"
+            frameborder="0">
+        </iframe>
+
+        <div class="button">
+            <button>Рассчитать</button>
+            <button>Открыть маршрут в Яндекс картах</button>
+        </div>
+    </section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
