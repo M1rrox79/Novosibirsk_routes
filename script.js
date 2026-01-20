@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
   option1.textContent = 'Сердце Сибири - Площадь Ленина и НОВАТ';
 
   const option2 = document.createElement('option');
-  option2.value = 'Прогулка по Тихому центру и Красному проспекту';
-  option2.textContent = 'Прогулка по Тихому центру и Красному проспекту';
+  option2.value = 'Инженерное сердце Сибири';
+  option2.textContent = 'Инженерное сердце Сибири';
 
   const option3 = document.createElement('option');
   option3.value = 'Исследование Акадамгородка';
