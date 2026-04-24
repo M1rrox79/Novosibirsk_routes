@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         successMessage.textContent = result.error; // Показываем сообщение о повторной регистрации
       }
     } catch (err) {
-      alert('Услышал родной. Ждем, заебешь!');
+      alert('Спасибо за регистрацию. Будем ждать вас в нашем приключении.');
       console.error(err);
     }
   });
