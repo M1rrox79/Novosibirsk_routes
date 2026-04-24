@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactsOverlay = document.createElement('div');
     contactsOverlay.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:8px;">
-        <div>+7 (999) 123-45-67</div>
+        <div>+7 (913) 387-13-25</div>
         <div>info@example.com</div>
       </div>
     `;
@@ -303,13 +303,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', hideContactsOverlay);
   }
 
-  /*
-  const aboutLink = document.getElementById('about-link');
-  if (aboutLink) {
-    aboutLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Инфа о нашем проекте');
-    });
-  }
-  */
 });
