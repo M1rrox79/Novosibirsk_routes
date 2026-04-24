@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         successMessage.textContent = result.error; // Показываем сообщение о повторной регистрации
       }
     } catch (err) {
-      alert('Не удалось отправить данные на сервер.');
+      alert('Услышал родной. Ждем, заебешь!');
       console.error(err);
     }
   });
